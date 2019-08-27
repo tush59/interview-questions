@@ -1,0 +1,7 @@
+On vs live
+
+https://weblog.west-wind.com/posts/2013/Jun/12/Replacing-jQuerylive-with-jQueryon
+
+Connect RDS inside vpc using workbench
+
+http://www.inoneo.com/en/blog/15/amazon-aws/connect-to-an-aws-rds-instance-inside-a-vpc-using-mysql-workbench
