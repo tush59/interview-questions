@@ -1,0 +1,46 @@
+SET AUTOCOMMIT=0;
+START TRANSACTION;
+drop procedure if exists insert_user;
+drop procedure if exists commit_or_rollback;
+
+
+delimiter //
+
+create procedure insert_user(
+
+INOUT name varchar(255),
+INOUT age int (11)
+)
+BEGIN
+insert into person values (name,age);
+END;
+
+//
+DELIMITER //
+create PROCEDURE commit_or_rollback()
+BEGIN
+SET @count=(SELECT count(name) from person);
+IF @count > 1 THEN 
+ ROLLBACK;
+ELSE
+COMMIT;
+END IF;
+END
+//
+
+DELIMITER ;
+
+drop table if exists person;
+
+create table person(
+name varchar(255),
+age int(11)
+);
+SET @name='person1';
+SET @age=25;
+call insert_user(@name,@age);
+call insert_user(@name,@age);
+call commit_or_rollback();
+SET @count=(SELECT count(name) from person);
+SELECT @count;
+ 
