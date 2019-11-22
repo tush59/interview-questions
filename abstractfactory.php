@@ -29,7 +29,6 @@ class roundedrectangle implements shape{
 }
 
 abstract class abstractFactory{
-
         abstract function getShapeType($type);
 }
 
